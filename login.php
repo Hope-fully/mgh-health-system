@@ -65,16 +65,30 @@
   <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
   <label for="inputPassword" class="sr-only">Password</label>
   <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-  <div class="checkbox">
-    
-  </div>
+  <div>
+		<input type="checkbox" onclick="myFunction()">show password
+		</div>
   <button class="btn btn-lg btn-primary btn-block" type="submit">login</button>
   <p>havent registered yet?</p>
 <li><a href="register.php" class="page-scroll">Register</a></li>
 
 </form>
 
-
+<script>
+	function myFunction()
+	{
+		var x=document.getElementById("myInput");
+		if(x.type=="password")
+		{
+			x.type="text";
+		}
+		else
+		{
+			x.type="password";
+		}
+	}
+	
+	</script>
 
 </div> <!-- /container -->
 
