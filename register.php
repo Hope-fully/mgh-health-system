@@ -82,9 +82,9 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="inputEmail3" class="col-sm-2 control-label" value="<?php echo $email; ?>" >Email</label>
+        <label for="inputEmail3" class="col-sm-2 control-label"  >Email</label>
         <div class="col-sm-10">
-          <input type="email" class="form-control" id="inputEmail3" placeholder="Email" name="email">
+          <input type="email" class="form-control" id="inputEmail3" placeholder="Email" name="email" value="<?php echo $email; ?>">
         </div>
       </div>
       <div class="form-group">
