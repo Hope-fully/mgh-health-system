@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 14, 2020 at 11:36 PM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 7.0.15
+-- Generation Time: Dec 02, 2020 at 10:57 AM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `appointment`
+-- Database: `mgh`
 --
 
 -- --------------------------------------------------------
@@ -38,7 +40,7 @@ CREATE TABLE `adminuser` (
 
 INSERT INTO `adminuser` (`admin_id`, `ad_username`, `ad_pass`) VALUES
 (1, 'admin', 'admin'),
-(2, 'edward98', 'E@981130d');
+(2, 'hopefully', 'hopefully');
 
 -- --------------------------------------------------------
 
@@ -62,10 +64,7 @@ CREATE TABLE `booking` (
 --
 
 INSERT INTO `booking` (`book_id`, `b_date`, `b_time`, `b_contact`, `purpose`, `b_name`, `b_surname`, `b_id`) VALUES
-(1, '2020-01-15', '09:00:00', '0724908350', 'consult', 'thabang', 'njana', '9806155121083'),
-(4, '2020-01-15', '09:30:00', '0791504873', 'checkup', 'Kethabile', 'Mafoko', '9808155121083'),
-(5, '2020-01-16', '16:30:00', '0724908350', 'checkup', 'thabang', 'njana', '9805155121085'),
-(6, '2020-01-16', '09:00:00', '0791504873', 'consult', 'thabang', 'njana', '9806155121083');
+(6, '2020-11-30', '09:00:00', '0791504873', 'consult', 'Hope', 'Moloto', '9806155121083');
 
 -- --------------------------------------------------------
 
@@ -75,13 +74,12 @@ INSERT INTO `booking` (`book_id`, `b_date`, `b_time`, `b_contact`, `purpose`, `b
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
-  `username` varchar(30) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `email` varchar(30) NOT NULL,
-  `name` varchar(30) NOT NULL,
-  `surname` varchar(30) NOT NULL,
-  `address` varchar(100) NOT NULL,
+  `name` varchar(40) NOT NULL,
   `id_num` varchar(13) NOT NULL,
+  `phoneNum` varchar(10) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `password` varchar(50) NOT NULL,
   `gender` varchar(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -89,8 +87,10 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `email`, `name`, `surname`, `address`, `id_num`, `gender`) VALUES
-(1, 'thabang98', 'da1ed0b7f0ccd6dfe1a1c7bdb868e720', 'njana@gmail.com', 'thabang', 'njana', '1853 Mostumi street ,Soshanguve', '9711305616089', 'Male');
+INSERT INTO `user` (`id`, `name`, `id_num`, `phoneNum`, `address`, `email`, `password`, `gender`) VALUES
+(1, 'thabang', '9711305616089', 'hopefully', '1853 Mostumi street ,Soshanguve', 'njana@gmail.com', 'da1ed0b7f0ccd6dfe1a1c7bdb868e720', 'Male'),
+(2, 'Hope Moloto', '9900115689089', '', '123 tut', 'hope@mgh.com', '65fd89d1edc4f5732e09982362c5a941', 'saab'),
+(3, 'John Doe', '6710271111586', '', '123 Aubrey Road', 'me@mgh.com', '65fd89d1edc4f5732e09982362c5a941', 'volvo');
 
 --
 -- Indexes for dumped tables
@@ -123,16 +123,20 @@ ALTER TABLE `user`
 --
 ALTER TABLE `adminuser`
   MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
   MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
