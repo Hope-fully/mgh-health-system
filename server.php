@@ -21,10 +21,7 @@
 		$password_1 = mysqli_real_escape_string($db, $_POST['password1']);
 		$password_2 = mysqli_real_escape_string($db, $_POST['password2']);
         $gender=mysqli_real_escape_string($db, $_POST['gender']);
-		
-		
 
-		
 				if (empty($name)) { array_push($errors, "name is required"); }
 				if (empty($id_num)) { array_push($errors, "ID number is required"); }
 				if (empty($phone_Num)) { array_push($errors, "surname is required"); }
@@ -32,9 +29,6 @@
 				if (empty($email)) { array_push($errors, "Email is required"); }
 				if (empty($password_1)) { array_push($errors, "Password is required"); }
 				if (empty($password_1)) { array_push($errors, "Password is required"); }
-                
-                
-                
                 if (empty($gender)) { array_push($errors, "Gender is required"); }
 
 
