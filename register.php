@@ -1,3 +1,4 @@
+<?php include('server.php') ?>
 <!DOCTYPE html>
 <head>
 	<title>Register</title>
@@ -54,7 +55,6 @@
 <body>
 
 <form method="post" action="register.php" class="form-horizontal" style="padding-top: 200px; width: 50%">
-
   <?php include('errors.php'); ?>
 
     <div class="form-group">
