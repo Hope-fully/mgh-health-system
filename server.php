@@ -47,22 +47,22 @@
                 }
                 
 		
-		$query1 = "SELECT * FROM user WHERE `username` = '$username'";
+		$query1 = "SELECT * FROM user WHERE `email` = '$email'";
 $result1 = mysqli_query($db,$query1);
 
 if ($result1) {
 
     if (mysqli_num_rows($result1) == 1) {
         while($row = mysqli_fetch_array($result1)) {
-            $user=$row['username'] ;
+            $user=$row['email'] ;
 
 
         }
     }
 }
-if($username==$user)
+if($email==$user)
 {
-    array_push($errors, "Username Number already exist, try Again.."); 
+    array_push($errors, "Email Number already exist, try Again.."); 
 }
 		//------------------------------------------------
 		$password=$password_1;
@@ -95,14 +95,14 @@ if (!preg_match("#\W+#", $password)) {
 	
 		if (count($errors) == 0) {
 			$password = md5($password_1);
-			$query = "INSERT INTO user (username, email, password,name,surname,address,gender,id_num) 
-					  VALUES('$username', '$email', '$password','$name','$surname','$address','$gender','$id_num')";
+			$query = "INSERT INTO user (name, id_num, phoneNum, address, password, gender) 
+					  VALUES('$name', '$id_num', '$phoneNum','$address','$password','$gender')";
 			mysqli_query($db, $query);
 
-			$_SESSION['username'] = $username;
+			$_SESSION['email'] = $username;
 			$_SESSION['success'] = "You are now logged in";
 			
-			header('location: home.php');
+			header('location: index.php');
 		}
 
 	}
@@ -111,11 +111,11 @@ if (!preg_match("#\W+#", $password)) {
 
 	// LOGIN USER
 	if (isset($_POST['login_user'])) {
-		$username = mysqli_real_escape_string($db, $_POST['username']);
+		$username = mysqli_real_escape_string($db, $_POST['email']);
 		$password = mysqli_real_escape_string($db, $_POST['password']);
 
 		if (empty($username)) {
-			array_push($errors, "Username is required");
+			array_push($errors, "email is required");
 		}
 		if (empty($password)) {
 			array_push($errors, "Password is required");
@@ -145,15 +145,15 @@ if (!preg_match("#\W+#", $password)) {
 
 		if (count($errors) == 0) {
 			$password = md5($password);
-			$query = "SELECT * FROM user WHERE username='$username' AND password='$password'";
+			$query = "SELECT * FROM user WHERE email='$email' AND password='$password'";
 			$results = mysqli_query($db, $query);
 
 			if (mysqli_num_rows($results) == 1) {
-				$_SESSION['username'] = $username;
+				$_SESSION['email'] = $email;
 				$_SESSION['success'] = "You are now logged in";
 				header('location: home.php');
 			}else {
-				array_push($errors, "Wrong username/password combination");
+				array_push($errors, "Wrong email/password combination");
 			}
 		}
 	}
